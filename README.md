@@ -10,9 +10,9 @@ Javascript calls to send SMS and received SMS
 
 4. run ```touch .env``` in the root of the folder
 
-Note: You should be a registred twilio user to generate keys and twilio_phone_number
+5. Open ```vi .env``` file to and add twilio keys
 
-5. Open ```vi .env``` file to and add twilio keys  
+    Note: You should be a registred twilio user to generate keys and twilio_phone_number
 
    * ```SID=Account_SID_key```
    * ```Token=Account_Auth_Token```
