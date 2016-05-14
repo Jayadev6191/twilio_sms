@@ -1,0 +1,74 @@
+<!Doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+</script>
+<script type="text/javascript"
+        src="//media.twiliocdn.com/sdk/js/client/v1.3/twilio.min.js">
+</script>
+</head>
+  <body>
+    <div>
+        <div id="navigation">
+              <nav class="navbar navbar-light bg-faded">
+                <a class="navbar-brand">Twilio SMS Client</a>
+              </nav>
+        </div>
+        <div class="container">
+          <div class="row">
+            <form>
+                <fieldset class="form-group">
+                  <div>
+                    <label for="exampleInputEmail1">Send SMS</label>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-btn" id="plus-one">
+                      <button class="btn btn-primary" type="button">+1</button>
+                    </span>
+                    <input type="text" id="number" class="form-control" placeholder="Recipient Number">
+                    <input type="text" id="message" class="form-control" placeholder="Enter message">
+                  </div>
+                </fieldset>
+                <button type="submit" class="btn btn-primary" id="send">Submit</button>
+            </form>
+          </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // Set up with TOKEN, a string generated server-side
+
+
+        function send_sms(recipient_number,message){
+          var details = {
+            "number":recipient_number,
+            "message":message
+          };
+
+          $.ajax({
+            type:"POST",
+            url:"/sendSMS",
+            data:details,
+            success:function(res){
+                console.log(res);
+              }
+          });
+        }
+
+        $("#send").click(function(e){
+          e.preventDefault();
+          if($("#number").val()!=="" && $("#message").val()!==""){
+              var number = '+1'+$("#number").val();
+              var message = '+1'+$("#message").val();
+              send_sms(number,message);
+          }else{
+            alert("You must enter both number and message");
+          }
+        });
+
+    </script>
+
+  </body>
+</html>
