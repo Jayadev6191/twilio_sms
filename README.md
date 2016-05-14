@@ -12,10 +12,11 @@ Javascript calls to send SMS and received SMS
 
 Note: You should be a registred twilio user to generate keys and twilio_phone_number
 
-5. Open ```vi .env``` file to and add twilio keys   
-   ```SID=Account_SID_key```
-   ```Token=Account_Auth_Token```
-   ```number=Registered_Twilio_number```
+5. Open ```vi .env``` file to and add twilio keys  
+
+   * ```SID=Account_SID_key```
+   * ```Token=Account_Auth_Token```
+   * ``` number=Registered_Twilio_number```
 
 6. run ```touch .gitignore```
 
