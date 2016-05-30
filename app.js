@@ -43,4 +43,30 @@ app.post('/sendSMS',function(req,res){
     });
 });
 
+app.post('/verifyAccount',function(req,res){
+    var details=req.body;
+    console.log(details);
+
+    // var verification_code = Math.floor(Math.random()*90000) + 100000;
+    // console.log(verification_code);
+
+    client.outgoingCallerIds.post({ phoneNumber: details.number }, function(err, data) {
+        if(err){
+            console.log(err);
+            return;
+        }
+        console.log(data.verificationCode);
+        res.send(data.verificationCode);
+        
+    });
+
+    // client.outgoingCallerIds.create({
+    //     friendlyName: details.name,
+    //     phoneNumber: details.number
+    // }, function(err, callerId) {
+    //     process.stdout.write(callerId.sid);
+    // });
+
+});
+
 module.exports = app;

@@ -1,5 +1,5 @@
 {
-  "name": "twilio",
+  "name": "twilio_connect",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -16,6 +16,8 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-    "http": "0.0.0"
+    "http": "0.0.0",
+    "surge": "^0.18.0",
+    "twilio": "^2.9.1"
   }
 }

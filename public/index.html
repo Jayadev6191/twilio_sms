@@ -5,10 +5,13 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     <script type="text/javascript"
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
-</script>
-<script type="text/javascript"
-        src="//media.twiliocdn.com/sdk/js/client/v1.3/twilio.min.js">
-</script>
+    </script>
+    <script type="text/javascript"
+            src="//media.twiliocdn.com/sdk/js/client/v1.3/twilio.min.js">
+    </script>
+    <script type="text/javascript"
+            src="javascripts/script.js">
+    </script>
 </head>
   <body>
     <div>
@@ -19,7 +22,8 @@
         </div>
         <div class="container">
           <div class="row">
-            <form>
+            <div class="col-md-6">
+              <form id="message_form">
                 <fieldset class="form-group">
                   <div>
                     <label for="exampleInputEmail1">Send SMS</label>
@@ -40,41 +44,37 @@
 
                 <button type="submit" class="btn btn-primary" id="send">Submit</button>
             </form>
+            </div>
+
+            <div class="col-md-6">
+              <form id="verification_form">
+                <fieldset class="form-group">
+                  <div>
+                    <a href="#">Verify Number</a> <small>(<strong>For trial account, </strong>your phone number must be verified before sending/receiving sms)</small>
+                  </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                  <div class="input-group" class="form-control">
+                    <input type="text" id="verifier_name" class="form-control" placeholder="Verifier Name" required="true" />
+                  </div>
+                </fieldset>
+
+
+                <fieldset class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-btn" id="plus-one">
+                      <button class="btn btn-primary" type="button">+1</button>
+                    </span>
+                    <input type="text" id="verification_number" class="form-control" placeholder="Verification Number"/>
+                  </div>
+                </fieldset>
+
+                <button type="submit" class="btn btn-primary" id="verify">Send Verification Code</button>
+            </form>
+            </div>
           </div>
         </div>
     </div>
-    <script type="text/javascript">
-        // Set up with TOKEN, a string generated server-side
-
-
-        function send_sms(recipient_number,message){
-          var details = {
-            "number":recipient_number,
-            "message":message
-          };
-
-          $.ajax({
-            type:"POST",
-            url:"/sendSMS",
-            data:details,
-            success:function(res){
-                console.log(res);
-              }
-          });
-        }
-
-        $("#send").click(function(e){
-          e.preventDefault();
-          if($("#number").val()!=="" && $("#message").val()!==""){
-              var number = '+1'+$("#number").val();
-              var message = '+1'+$("#message").val();
-              send_sms(number,message);
-          }else{
-            alert("You must enter both number and message");
-          }
-        });
-
-    </script>
-
   </body>
 </html>
