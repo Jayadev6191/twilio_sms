@@ -47,9 +47,6 @@ app.post('/verifyAccount',function(req,res){
     var details=req.body;
     console.log(details);
 
-    // var verification_code = Math.floor(Math.random()*90000) + 100000;
-    // console.log(verification_code);
-
     client.outgoingCallerIds.post({ phoneNumber: details.number }, function(err, data) {
         if(err){
             console.log(err);

@@ -1,6 +1,6 @@
 twilio_sms
 ==========================
-Javascript calls to send SMS and received SMS
+Javascript calls to send SMS and received SMS(Work in Progress)
 
 1. Clone the repository using ```git clone```
 
